@@ -39,7 +39,7 @@ def get_find_packages():
 def download_source(download_url, md5, save_as):
     try:
         urllib.urlretrieve(download_url, filename=save_as)
-    except Exception, e:
+    except Exception as e:
         sys.stdout.write("Error downloading %s: %s\n" % (download_url, e))
         return False
     md5_new = hashlib.md5(open(save_as).read()).hexdigest()
@@ -54,7 +54,7 @@ def extract_source(fn_name, extract_as):
         try:
             tfile = tarfile.open(fn_name)
             tfile.extractall(extract_as)
-        except Exception, e:
+        except Exception as e:
             sys.stdout.write("Error occurred during extraction: %s\n" % e)
             return False
         return True
@@ -69,7 +69,7 @@ def copy_folder(new_dir, old_dir):
         sys.stderr.write("[shutil.ERROR] Could not copy folder from %s to %s\n" % (old_dir, new_dir))
         sys.stderr.write("%s\n" % e.message)
         return False
-    except Exception, e:
+    except Exception as e:
         sys.stderr.write("[ERROR] Could not copy folder from %s to %s\n" % (old_dir, new_dir))
         sys.stderr.write("%s\n" % e.message)
         return False
@@ -83,7 +83,7 @@ def make_dir(new_dir):
         else:
             sys.stdout.write("[INFO] %s is already a directory, we use it for our installation\n" %
                              new_dir)
-    except Exception, e:
+    except Exception as e:
         sys.stdout.write("[ERROR] Something (%s) went wrong, please create %s and try again\n" %
                          (e.message, new_dir))
 
@@ -114,7 +114,7 @@ class AdditionalInstall(install):
         os.chdir(build_dir)
         try:
             subprocess.check_call("make")
-        except subprocess.CalledProcessError, e:
+        except subprocess.CalledProcessError as e:
             sys.stdout.write("Error while building runsolver: %s\n" % e)
             os.chdir(cur_pwd)
             return False
@@ -143,9 +143,6 @@ class AdditionalInstall(install):
         here_we_are = os.getcwd()
         runsolver_tar_name = "runsolver-3.3.4.tar.bz2"
         runsolver_name = "runsolver-3.3.4"
-        if sys.version_info < (2, 7, 0) or sys.version_info >= (2, 8, 0):
-            sys.stderr.write("HPOlib requires Python 2.7.0\n")
-            sys.exit(-1)
 
         downloaded, extracted, built = (False, False, False)
         runsolver_needs_to_be_installed = False
@@ -174,7 +171,7 @@ class AdditionalInstall(install):
             call = "sed -i 's|gnu/asm/unistd_$(WSIZE).h|gnu/asm/unistd_$(WSIZE).h  /usr/include/i386-linux-gnu/asm/unistd_$(WSIZE).h|' runsolver/src/Makefile"
             try:
                 subprocess.check_call(call, shell=True)
-            except subprocess.CalledProcessError, e:
+            except subprocess.CalledProcessError as e:
                 sys.stdout.write("Replacing did not work: %s\n" % e)
             md5_new = hashlib.md5(open("runsolver/src/Makefile").read()).hexdigest()
             runsolver_md5 = "4870722e47a6f74d5167376d371f1730"

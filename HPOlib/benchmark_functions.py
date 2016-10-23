@@ -438,7 +438,7 @@ def lda_on_grid(kappa, tau, s, ret_time=False):
         config_tree[config[0]][config[1]][config[2]][0] = config[3]
         config_tree[config[0]][config[1]][config[2]][1] = config[4]
 
-    print kappa, tau, s
+    print(kappa, tau, s)
     if ret_time:
         return config_tree[kappa_values[kappa]][tau_values[tau]][s_values[s]][1]
     else:
@@ -1908,7 +1908,7 @@ def svm_on_grid(c, alpha, epsilon, ret_time=False):
         config_tree[config[0]][config[1]][config[2]][0] = config[3]
         config_tree[config[0]][config[1]][config[2]][1] = config[4]
 
-    print c, alpha, epsilon
+    print(c, alpha, epsilon)
     if ret_time:
         return config_tree[c_values[c]][alpha_values[alpha]][epsilon_values[epsilon]][1]
     else:

@@ -142,9 +142,9 @@ def main(pkl_list, name_list, autofill, title="", log=False, save="",
                         pass
                     else:
                         # Yes ... trouble
-                        print "Help"
-                        print trials["endtime"][time_idx]
-                        print cv_endtime[i]
+                        print("Help")
+                        print(trials["endtime"][time_idx])
+                        print(cv_endtime[i])
                     time_idx += 1
                 # everything ...
                 else:

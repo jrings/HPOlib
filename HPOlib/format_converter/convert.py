@@ -38,22 +38,22 @@ def smac_to_spearmint_helper(space, save=""):
 
 
 def smac_to_tpe_helper(space, save=""):
-    print "This is not yet implemented"
+    raise NotImplementedError("smac_to_tpe_helper is not implemented")
 
 
 def spearmint_to_smac_helper(space, save=""):
-    print "This is not yet implemented"
+    raise NotImplementedError("smac_to_smac_helper is not implemented")
 
 
 def spearmint_to_tpe_helper(space, save=""):
-    print "This is not yet implemented"
+    raise NotImplementedError("spearmint_to_tpe_helper is not implemented")
 
 
 def tpe_to_spearmint_helper(space, save=""):
     try:
         import hyperopt
     except ImportError:
-        print "Cannot find hyperopt. To use this converter, modify $PYTHONPATH to contain a hyperopt installation"
+        print("Cannot find hyperopt. To use this converter, modify $PYTHONPATH to contain a hyperopt installation")
 
     # First convert to smac
     tmp = tpe_to_smac.convert_tpe_to_smac_from_file(space)
@@ -73,7 +73,7 @@ def tpe_to_smac_helper(space, save=""):
     try:
         import hyperopt
     except ImportError:
-        print "Cannot find hyperopt. To use this converter, modify $PYTHONPATH to contain a hyperopt installation"
+        print("Cannot find hyperopt. To use this converter, modify $PYTHONPATH to contain a hyperopt installation")
     return tpe_to_smac.convert_tpe_to_smac_from_file(space)
 
 
@@ -101,7 +101,7 @@ def main():
 
     space = os.path.abspath(args.space)
     if not os.path.isfile(space):
-        print "%s is not a valid path" % space
+        print("%s is not a valid path" % space)
         sys.exit(1)
 
     # Unifying strings
@@ -113,7 +113,7 @@ def main():
         args.conv_to == "TPE"
 
     if args.conv_to == args.conv_from:
-        print "Converting from %s to %s makes no sense" % (args.conv_to, args.conv_from)
+        print("Converting from %s to %s makes no sense" % (args.conv_to, args.conv_from))
 
     # This is like a switch statement
     options = {'SMAC': {'SPEARMINT': smac_to_spearmint_helper,
@@ -129,7 +129,7 @@ def main():
         fh.write(new_space)
         fh.close()
     else:
-        print new_space
+        print(new_space)
 
 if __name__ == "__main__":
     main()

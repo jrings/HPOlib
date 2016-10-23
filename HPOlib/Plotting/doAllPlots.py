@@ -45,7 +45,7 @@ def _plot_trace(pkl_list, name_list, save="", cut=sys.maxint, log=False):
         plotTrace.main(pkl_list, name_list, save=save, log=log, cut=cut)
         os.chdir(cur_dir)
         sys.stdout.write("passed\n")
-    except Exception, e:
+    except Exception as e:
         sys.stderr.write(format_traceback(sys.exc_info()))
         sys.stderr.write("failed: %s %s" % (sys.exc_info()[0], e))
 
@@ -63,7 +63,7 @@ def _trace_with_std_per_eval(pkl_list, name_list, save="",
                                       optimum=0, save=save, log=log, cut=cut)
         os.chdir(cur_dir)
         sys.stdout.write("passed\n")
-    except Exception, e:
+    except Exception as e:
         sys.stderr.write(format_traceback(sys.exc_info()))
         sys.stderr.write("failed: %s %s" % (sys.exc_info()[0], e))
 
@@ -81,7 +81,7 @@ def _trace_with_std_per_time(pkl_list, name_list, save="",
                                       optimum=0, save=save, log=log, cut=cut)
         os.chdir(cur_dir)
         sys.stdout.write("passed\n")
-    except Exception, e:
+    except Exception as e:
         sys.stderr.write(format_traceback(sys.exc_info()))
         sys.stderr.write("failed: %s %s" % (sys.exc_info()[0], e))
 
@@ -99,7 +99,7 @@ def _optimizer_overhead(pkl_list, name_list, save="",
                                    log=log, save=save, cut=cut)
         os.chdir(cur_dir)
         sys.stdout.write("passed\n")
-    except Exception, e:
+    except Exception as e:
         sys.stderr.write(format_traceback(sys.exc_info()))
         sys.stderr.write("failed: %s %s" % (sys.exc_info()[0], e))
 
@@ -115,7 +115,7 @@ def _box_whisker(pkl_list, name_list, save="", cut=sys.maxint, log=False):
         plotBoxWhisker.main(pkl_list, name_list, save=save, cut=cut)
         os.chdir(cur_dir)
         sys.stdout.write("passed\n")
-    except Exception, e:
+    except Exception as e:
         sys.stderr.write(format_traceback(sys.exc_info()))
         sys.stderr.write("failed: %s %s" % (sys.exc_info()[0], e))
 
@@ -131,7 +131,7 @@ def _generate_tex_table(pkl_list, name_list, save="", cut=sys.maxint,
         generateTexTable.main(pkl_list, name_list, save, cut)
         os.chdir(cur_dir)
         sys.stdout.write("passed\n")
-    except Exception, e:
+    except Exception as e:
         sys.stderr.write(format_traceback(sys.exc_info()))
         sys.stderr.write("failed: %s %s" % (sys.exc_info()[0], e))
 
@@ -159,7 +159,7 @@ def _statistics(pkl_list, name_list, save="", cut=sys.maxint, log=False):
             print (out)
         os.chdir(cur_dir)
         sys.stdout.write("passed\n")
-    except Exception, e:
+    except Exception as e:
         sys.stderr.write(format_traceback(sys.exc_info()))
         sys.stderr.write("failed: %s %s" % (sys.exc_info()[0], e))
 
@@ -236,7 +236,7 @@ def main():
         ret = _generate_tex_table(pkl_list=pkl_list, name_list=name_list,
                             save=tmp_save, log=log, cut=args.cut)
         if ret is not None:
-            print ret
+            print(ret)
 
 
     # We can always plot this

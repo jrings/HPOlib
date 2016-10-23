@@ -93,11 +93,11 @@ def convert_tpe_to_smac_from_file(filename):
     #noinspection PyBroadException
     try:
         space = imp.load_source(space_name, filename)
-    except Exception, e:
+    except Exception as e:
         print("Could not find\n%s\n\tin\n%s\n\trelative to\n%s"
               % (space_name, filename, os.getcwd()))
         import traceback
-        print traceback.format_exc()
+        print(traceback.format_exc())
         sys.exit(1)
 
     search_space = space.space

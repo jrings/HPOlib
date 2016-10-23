@@ -74,7 +74,7 @@ def plot_contour(trial_list, name_list, save="", title=""):
 
     # Get values
     for opt in range(len(name_list)):
-        print name_list[opt], "has", len(trial_list[opt]['trials']), "samples"
+        print(name_list[opt], "has", len(trial_list[opt]['trials']), "samples")
         m = markers.next()
         c = colors.next()
         x = np.zeros(len(trial_list[opt]["trials"]))
@@ -126,8 +126,8 @@ def main():
     args, unknown = parser.parse_known_args()
 
     if len(unknown) % 2 != 0:
-        print "Wrong number of arguments", len(args)
-        print prog
+        print("Wrong number of arguments", len(args))
+        print(prog)
         sys.exit(1)
 
     pkl_list, name_list = plotUtil.get_pkl_and_name_list(unknown)

@@ -154,7 +154,7 @@ def main(pkl_list, name_list, param, save="", title="", jitter=0):
               (param, "\n".join([p[1:] for p in param_set])))
         sys.exit(1)
     else:
-        print "Found %s values for %s" % (str(len(value_list)), param)
+        print("Found %s values for %s" % (str(len(value_list)), param))
 
     plot_params(value_list=value_list, result_list=result_list, name=param, save=save, title=title,
                 jitter=jitter)

@@ -42,7 +42,7 @@ def _get_best_trial(filename, cut=None):
         best_idx = 0
         if cut is None:
             cut = len(trials['trials'])
-        print filename, "#Trials", len(trials['trials'])
+        print(filename, "#Trials", len(trials['trials']))
         for i, trial in enumerate(trials['trials'][:cut]):
             result = trial['result']
             if result < current_best:
@@ -52,7 +52,7 @@ def _get_best_trial(filename, cut=None):
             raise Exception("%s does not contain any results" % filename)
         return current_best, best_idx
     except Exception as e:
-        print "Problem with ", filename, e
+        print("Problem with ", filename, e)
         sys.stdout.flush()
         return None, None
 

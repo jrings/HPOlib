@@ -67,7 +67,7 @@ def plot_box_whisker(best_trials, name_list, title="", save="", y_min=0,
             min_y = min(best_trials[i])
         if max(best_trials[i]) > max_y:
             max_y = max(best_trials[i])
-    print medians
+    print(medians)
     
     # Plot xticks
     xticks(range(1, len(name_list)+1), name_list)

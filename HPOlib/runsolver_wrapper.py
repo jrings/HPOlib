@@ -365,7 +365,7 @@ def main():
         del experiment
 
     logger.info(return_string)
-    print return_string
+    print(return_string)
     return return_string
 
 

@@ -55,9 +55,9 @@ def plot_optimization_trace(trial_list, name_list, optimum=0, title="", log=Fals
     # This might not do what we actually want; Ideally it would only take the
     # ones that where actually run according to instance_order
     for i in range(len(name_list)):
-        print cut, len(trial_list[i])
+        print(cut, len(trial_list[i]))
         num_plotted_trials = np.min([cut, len(trial_list[i])])
-        print num_plotted_trials
+        print(num_plotted_trials)
         x = range(num_plotted_trials)
         y = np.zeros((num_plotted_trials))
         line = np.zeros((num_plotted_trials))

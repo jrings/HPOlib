@@ -363,7 +363,7 @@ def main():
         output_file = os.path.join(optimizer_dir_in_experiment, optimizer + ".out")
         fh = open(output_file, "a")
         cmd = shlex.split(cmd)
-        print cmd
+        print(cmd)
 
         # Use a flag which is set to true as soon as all children are
         # supposed to be killed
